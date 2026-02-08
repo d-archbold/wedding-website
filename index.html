@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <style>
+        body { font-family: 'Georgia', serif; text-align: center; background: #f9f4f0; color: #333; }
+        #login-screen { padding: 100px 20px; }
+        #wedding-content { display: none; padding: 50px 20px; } /* Hidden by default */
+        .section { margin-bottom: 60px; }
+        input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; background: #d4a373; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        h1 { color: #d4a373; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <h1>Welcome to our Wedding Site</h1>
+        <p>Please enter the password from your invitation:</p>
+        <input type="password" id="pass-input" placeholder="Password">
+        <button onclick="checkPassword()">Enter</button>
+        <p id="error-msg" style="color: red;"></p>
+    </div>
+
+    <div id="wedding-content">
+        <header class="section">
+            <h1>Taylor & Jordan</h1>
+            <p>08.22.2026 • Macclesfield, UK</p>
+        </header>
+
+        <section class="section">
+            <h2>The Big Day</h2>
+            <p>Ceremony starts at 2:00 PM at the Old Town Hall.</p>
+        </section>
+
+        <section class="section">
+            <h2>RSVP</h2>
+            <p>Please let us know if you can make it by July 1st!</p>
+            </section>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const pass = document.getElementById('pass-input').value;
+            const correctPass = "Love2026"; // Change this to your password
+
+            if (pass === correctPass) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('wedding-content').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').innerText = "Oops! Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
