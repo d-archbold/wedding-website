@@ -6,13 +6,19 @@
     <meta name="robots" content="noindex"> 
     <title>Dáire & Rhys | June 27, 2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
+        /* KEYFRAME FOR FADE IN */
+        @keyframes fadeInEffect {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
-            color: #444;
+            color: #1a252f; /* Slightly darker charcoal for contrast */
             overflow-x: hidden;
             letter-spacing: 0.5px;
             background: url('background.jpg') no-repeat center center fixed;
@@ -20,20 +26,20 @@
             min-height: 100vh;
         }
 
-        /* Increased transparency (0.8) and reduced spacing */
         .content-wrapper {
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.7); /* Set to 0.7 as requested */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             max-width: 650px;
             margin: 20px auto;
-            padding: 30px 20px;
+            padding: 40px 25px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             display: none; 
+            /* Triggers the fade in when the display changes to block */
+            animation: fadeInEffect 1.2s ease-out;
         }
 
-        /* Perfect Middle Alignment for Login */
         #login-screen { 
             display: flex;
             justify-content: center;
@@ -44,57 +50,68 @@
         }
 
         .login-box {
-            background: rgba(255,255,255,0.85); 
-            padding: 40px; 
+            background: rgba(255,255,255,0.9); 
+            padding: 50px 30px; 
             border-radius: 15px; 
             backdrop-filter: blur(5px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            max-width: 300px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 400px;
             width: 90%;
         }
 
         h1 { 
-            color: #b5835a; 
+            color: #8a6d3b; /* Slightly deeper gold for readability on 0.7 background */
             font-family: 'Playfair Display', serif; 
             font-size: 2.2rem; 
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-style: normal;
         }
         
         h2 { 
-            color: #8e6543; 
+            color: #8a6d3b; 
             font-family: 'Playfair Display', serif; 
             font-size: 1.6rem; 
             margin-top: 0;
-            margin-bottom: 15px; 
-            font-style: italic;
+            margin-bottom: 20px; 
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Tighter section spacing */
-        .section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .section:last-child { border-bottom: none; margin-bottom: 0; }
+        .section { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid rgba(138, 109, 59, 0.2); }
+        .section:last-child { border-bottom: none; }
         
-        /* Single Day Countdown Style */
-        #countdown-container {
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #1a252f;
+        }
+
+        .countdown-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #b5835a;
-            margin-top: 10px;
-            font-weight: 500;
+            font-size: 1.4rem;
+            color: #8a6d3b;
+            font-weight: 600;
+            display: block;
+            margin-top: 15px;
         }
 
         input { 
-            padding: 12px; 
-            border: 1px solid #ddd; 
+            padding: 15px; 
+            border: 1px solid #dcdde1; 
             width: 100%; 
             box-sizing: border-box;
             margin-bottom: 15px;
             font-size: 16px; 
             text-align: center;
+            border-radius: 4px;
         }
         
         button { 
-            padding: 15px 30px; 
-            background: #b5835a; 
+            padding: 16px 30px; 
+            background: #8a6d3b; 
             color: white; 
             border: none; 
             cursor: pointer; 
@@ -104,26 +121,28 @@
             letter-spacing: 2px;
             transition: 0.3s;
             width: 100%;
+            border-radius: 4px;
         }
-        button:hover { background: #8e6543; }
+        button:hover { background: #6d562f; }
         
-        .order-list { list-style: none; padding: 0; line-height: 1.8; font-size: 1rem; }
-        .order-list strong { color: #b5835a; font-family: 'Playfair Display', serif; }
+        .order-list { list-style: none; padding: 0; line-height: 2; font-size: 1.05rem; }
+        .order-list strong { color: #8a6d3b; font-family: 'Lato', sans-serif; font-weight: 700; }
 
-        .faq-item { text-align: left; margin-bottom: 15px; }
-        .faq-item h3 { font-size: 1.1rem; color: #b5835a; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
-        .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
+        .faq-item { text-align: left; margin-bottom: 20px; }
+        .faq-item h3 { font-size: 1.15rem; color: #8a6d3b; margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+        .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: #1a252f; }
 
         .notes-box { 
-            background: rgba(181, 131, 90, 0.08); 
-            padding: 20px; 
+            background: rgba(138, 109, 59, 0.08); 
+            padding: 25px; 
             border-radius: 8px; 
-            font-size: 0.9rem; 
+            font-size: 0.95rem; 
             text-align: left;
-            margin-top: 20px;
+            margin-top: 25px;
+            border-left: 3px solid #8a6d3b;
         }
 
-        .rsvp-container { margin-top: 0; overflow: hidden; }
+        .rsvp-container { margin-top: 10px; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -131,27 +150,23 @@
     <div id="login-screen">
         <div class="login-box">
             <h1>Welcome</h1>
-            <p style="font-size: 0.9rem; margin-bottom: 20px;">Please enter the password:</p>
-            <input type="password" id="pass-input" placeholder="Password">
+            <p style="font-size: 1.1rem; margin-bottom: 25px; line-height: 1.4; color: #1a252f;">
+                Welcome to the wedding website for <br><strong>D&aacute;ire and Rhys</strong>
+            </p>
+            <input type="password" id="pass-input" placeholder="Enter Password">
             <button onclick="checkPassword()">Enter Site</button>
-            <p id="error-msg" style="color: #c0392b; font-size: 0.8rem; margin-top: 10px;"></p>
+            <p id="error-msg" style="color: #c0392b; font-size: 0.85rem; margin-top: 15px;"></p>
         </div>
     </div>
 
     <div id="wedding-content" class="content-wrapper">
         <header class="section">
-            <h1>D&aacute;ire &amp; Rhys</h1>
-            <p style="font-style: italic; color: #8e6543; margin: 5px 0;">Saturday, June 27, 2026</p>
-            <div id="countdown-container">
-                <span id="days-count">0</span> Days To Go
-            </div>
+            <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
+            <p class="intro-text">
+                You're invited to the wedding celebration of D&aacute;ire and Rhys at the Bowes Museum in Barnard Castle, County Durham.
+                <span class="countdown-text">Only <span id="days-count">0</span> days to go!</span>
+            </p>
         </header>
-
-        <section class="section">
-            <h2>The Venue</h2>
-            <p><strong>The Bowes Museum</strong>, Barnard Castle<br>
-            DL12 8NP</p>
-        </section>
 
         <section class="section">
             <h2>Order of the Day</h2>
@@ -174,21 +189,23 @@
                 <p>A traditional Irish gathering with group dancing. No experience needed! Please wear sensible footwear.</p>
             </div>
             <div class="faq-item">
-                <h3>Gifting & Parking</h3>
-                <p>A wedding fund will be available on the day. Free parking is behind the museum.</p>
+                <h3>Gifting &amp; Parking</h3>
+                <p>A wedding fund will be available on the day. Free parking is available behind the museum in a dedicated car park.</p>
             </div>
 
             <div class="notes-box">
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.5;">
-                    <li>Both keeping our family names.</li>
-                    <li>Adults only event (except Artur).</li>
-                    <li>Unplugged ceremony.</li>
+                <ul style="margin: 0; padding-left: 18px; line-height: 1.6; color: #1a252f;">
+                    <li>We will both be keeping our respective family names.</li>
+                    <li>While we love your little ones, our wedding will be a child-free event (with the exception of Artur).</li>
+                    <li>We invite you to be fully present during our unplugged ceremony; please keep devices switched off until the reception.</li>
                 </ul>
             </div>
         </section>
 
         <section class="section">
-            <p style="font-family: 'Playfair Display', serif; margin-bottom: 10px;"><strong>RSVP by 8th May 2026</strong></p>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #576574; margin-bottom: 15px;">
+                <strong>RSVP by 8th May 2026</strong>
+            </p>
             <div class="rsvp-container">
                 <script async src="https://tally.so/widgets/embed.js"></script>
                 <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Wedding RSVP"></iframe>
@@ -205,7 +222,7 @@
                 window.scrollTo(0,0);
                 updateCountdown();
             } else {
-                document.getElementById('error-msg').innerText = "Incorrect password.";
+                document.getElementById('error-msg').innerText = "Incorrect password, please try again.";
             }
         }
 
@@ -217,7 +234,7 @@
             
             document.getElementById("days-count").innerHTML = days > 0 ? days : 0;
             if (distance < 0) {
-                document.getElementById("countdown-container").innerHTML = "The Big Day is Here!";
+                document.getElementById("days-count").parentElement.innerHTML = "The Big Day is Here!";
             }
         }
     </script>
