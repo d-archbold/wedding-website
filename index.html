@@ -9,159 +9,147 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* STEP 2: BACKGROUND & BODY SETTINGS */
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
             color: #444;
             overflow-x: hidden;
             letter-spacing: 0.5px;
-            /* This looks for your uploaded background.jpg */
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
         }
 
-        /* The "Glass" container effect */
+        /* Increased transparency (0.8) and reduced spacing */
         .content-wrapper {
-            background: rgba(255, 255, 255, 0.92); /* Semi-transparent white */
-            backdrop-filter: blur(8px); /* Blurs the background behind the box */
-            -webkit-backdrop-filter: blur(8px);
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 50px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             display: none; 
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
+        /* Perfect Middle Alignment for Login */
         #login-screen { 
-            padding: 40px 20px; 
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 90vh;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            text-align: center;
         }
 
-        /* Typography - Playfair Display for Headings */
+        .login-box {
+            background: rgba(255,255,255,0.85); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            max-width: 300px;
+            width: 90%;
+        }
+
         h1 { 
             color: #b5835a; 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.4rem; 
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-size: 2.2rem; 
+            margin-bottom: 5px;
         }
         
         h2 { 
             color: #8e6543; 
             font-family: 'Playfair Display', serif; 
-            font-size: 1.8rem; 
-            margin-bottom: 20px; 
+            font-size: 1.6rem; 
+            margin-top: 0;
+            margin-bottom: 15px; 
             font-style: italic;
         }
 
-        .section { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid #eee; }
-        .section:last-child { border-bottom: none; }
+        /* Tighter section spacing */
+        .section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .section:last-child { border-bottom: none; margin-bottom: 0; }
         
-        /* Premium Countdown Styles */
-        #countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
+        /* Single Day Countdown Style */
+        #countdown-container {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #b5835a;
+            margin-top: 10px;
+            font-weight: 500;
         }
-        .time-unit {
-            background: #b5835a;
-            color: white;
-            padding: 12px;
-            border-radius: 4px;
-            min-width: 65px;
-            box-shadow: 0 4px 10px rgba(181, 131, 90, 0.2);
-        }
-        .time-unit span { display: block; font-size: 1.4rem; font-weight: bold; }
-        .label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Premium Form & Button Styles */
         input { 
-            padding: 15px; 
+            padding: 12px; 
             border: 1px solid #ddd; 
-            border-radius: 0; 
-            width: 250px; 
+            width: 100%; 
+            box-sizing: border-box;
             margin-bottom: 15px;
             font-size: 16px; 
             text-align: center;
-            outline: none;
         }
         
         button { 
-            padding: 15px 45px; 
+            padding: 15px 30px; 
             background: #b5835a; 
             color: white; 
             border: none; 
             cursor: pointer; 
-            border-radius: 0; 
             font-weight: bold; 
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: all 0.4s ease;
+            transition: 0.3s;
+            width: 100%;
         }
-        button:hover { 
-            background: #8e6543; 
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        button:hover { background: #8e6543; }
         
-        .order-list { list-style: none; padding: 0; line-height: 2.2; font-size: 1.05rem; }
+        .order-list { list-style: none; padding: 0; line-height: 1.8; font-size: 1rem; }
         .order-list strong { color: #b5835a; font-family: 'Playfair Display', serif; }
 
-        .faq-item { text-align: left; margin-bottom: 25px; padding: 0 15px; }
-        .faq-item h3 { font-size: 1.2rem; color: #b5835a; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+        .faq-item { text-align: left; margin-bottom: 15px; }
+        .faq-item h3 { font-size: 1.1rem; color: #b5835a; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+        .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
 
         .notes-box { 
-            background: rgba(181, 131, 90, 0.05); 
-            padding: 25px; 
-            border-radius: 4px; 
-            font-size: 0.95rem; 
+            background: rgba(181, 131, 90, 0.08); 
+            padding: 20px; 
+            border-radius: 8px; 
+            font-size: 0.9rem; 
             text-align: left;
-            border-left: 2px solid #b5835a;
+            margin-top: 20px;
         }
 
-        .rsvp-container { margin-top: -10px; overflow: hidden; }
+        .rsvp-container { margin-top: 0; overflow: hidden; }
     </style>
 </head>
 <body>
 
     <div id="login-screen">
-        <div style="background: rgba(255,255,255,0.85); padding: 40px; border-radius: 10px; backdrop-filter: blur(5px);">
+        <div class="login-box">
             <h1>Welcome</h1>
-            <p style="margin-bottom: 25px;">Please enter the password to view our details:</p>
+            <p style="font-size: 0.9rem; margin-bottom: 20px;">Please enter the password:</p>
             <input type="password" id="pass-input" placeholder="Password">
-            <br>
             <button onclick="checkPassword()">Enter Site</button>
-            <p id="error-msg" style="color: #c0392b; margin-top: 15px;"></p>
+            <p id="error-msg" style="color: #c0392b; font-size: 0.8rem; margin-top: 10px;"></p>
         </div>
     </div>
 
     <div id="wedding-content" class="content-wrapper">
         <header class="section">
-            <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
-            <p style="font-style: italic; font-size: 1.1rem; color: #8e6543;">Saturday, June 27, 2026</p>
-            
-            <div id="countdown">
-                <div class="time-unit"><span id="days">0</span><div class="label">Days</div></div>
-                <div class="time-unit"><span id="hours">0</span><div class="label">Hrs</div></div>
-                <div class="time-unit"><span id="minutes">0</span><div class="label">Min</div></div>
-                <div class="time-unit"><span id="seconds">0</span><div class="label">Sec</div></div>
+            <h1>D&aacute;ire &amp; Rhys</h1>
+            <p style="font-style: italic; color: #8e6543; margin: 5px 0;">Saturday, June 27, 2026</p>
+            <div id="countdown-container">
+                <span id="days-count">0</span> Days To Go
             </div>
         </header>
 
         <section class="section">
             <h2>The Venue</h2>
-            <p style="font-size: 1.1rem;"><strong>The Bowes Museum</strong><br>
-            Barnard Castle, County Durham<br>
+            <p><strong>The Bowes Museum</strong>, Barnard Castle<br>
             DL12 8NP</p>
         </section>
 
@@ -177,42 +165,33 @@
 
         <section class="section">
             <h2>Questions &amp; Answers</h2>
-            
             <div class="faq-item">
                 <h3>Dress Code</h3>
-                <p>The dress code is formal wear. We encourage you to wear colourful clothing but to be comfortable for warm weather. Please do not wear all white or black.</p>
+                <p>Formal wear. Colourful clothing encouraged; please avoid all white or black.</p>
             </div>
-
             <div class="faq-item">
                 <h3>What is a C&eacute;il&iacute;?</h3>
-                <p>A traditional Irish gathering featuring folk music and lively group dancing. It will be led by a "caller" who guides participants through the steps. You will dance most dances with a partner but don't worry about securing these in advance. Please wear sensible footwear for this portion of the evening.</p>
+                <p>A traditional Irish gathering with group dancing. No experience needed! Please wear sensible footwear.</p>
             </div>
-
             <div class="faq-item">
-                <h3>Parking</h3>
-                <p>Free parking is available behind the museum in a dedicated car park.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Gifting</h3>
-                <p>Should you wish to give a gift, we will have a fund available on the day.</p>
+                <h3>Gifting & Parking</h3>
+                <p>A wedding fund will be available on the day. Free parking is behind the museum.</p>
             </div>
 
             <div class="notes-box">
-                <p><strong>A few final notes:</strong></p>
-                <ul style="margin: 15px 0 0 0; padding-left: 20px; line-height: 1.6;">
-                    <li>We will both be keeping our respective family names.</li>
-                    <li>While we love your little ones, our wedding will be a child-free event (with the exception of Artur).</li>
-                    <li>We invite you to be fully present with us during our unplugged ceremony; please keep all devices switched off until the reception.</li>
+                <ul style="margin: 0; padding-left: 18px; line-height: 1.5;">
+                    <li>Both keeping our family names.</li>
+                    <li>Adults only event (except Artur).</li>
+                    <li>Unplugged ceremony.</li>
                 </ul>
             </div>
         </section>
 
         <section class="section">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;"><strong>Please RSVP by 8th May 2026</strong></p>
+            <p style="font-family: 'Playfair Display', serif; margin-bottom: 10px;"><strong>RSVP by 8th May 2026</strong></p>
             <div class="rsvp-container">
                 <script async src="https://tally.so/widgets/embed.js"></script>
-                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0" title="Wedding RSVP"></iframe>
+                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Wedding RSVP"></iframe>
             </div>
         </section>
     </div>
@@ -224,30 +203,22 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
                 window.scrollTo(0,0);
-                startCountdown();
+                updateCountdown();
             } else {
-                document.getElementById('error-msg').innerText = "Incorrect password, please try again.";
+                document.getElementById('error-msg').innerText = "Incorrect password.";
             }
         }
 
-        function startCountdown() {
+        function updateCountdown() {
             const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
-            const timer = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hours").innerHTML = hours;
-                document.getElementById("minutes").innerHTML = minutes;
-                document.getElementById("seconds").innerHTML = seconds;
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById("countdown").innerHTML = "The Big Day is Here!";
-                }
-            }, 1000);
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            
+            document.getElementById("days-count").innerHTML = days > 0 ? days : 0;
+            if (distance < 0) {
+                document.getElementById("countdown-container").innerHTML = "The Big Day is Here!";
+            }
         }
     </script>
 </body>
