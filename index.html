@@ -12,7 +12,6 @@
             margin: 0;
             background-color: #f4f1ea; 
             color: #444;
-            /* Prevents horizontal scroll if elements peek out */
             overflow-x: hidden; 
         }
 
@@ -20,7 +19,7 @@
             background: white; 
             max-width: 700px;
             margin: 20px auto;
-            padding: 40px 20px; /* Adjusted padding for mobile */
+            padding: 40px 20px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: none; 
@@ -63,9 +62,8 @@
             border-radius: 5px; 
             width: 220px; 
             margin-bottom: 10px;
-            /* FONT SIZE MUST BE 16PX TO PREVENT ZOOM */
             font-size: 16px; 
-            -webkit-appearance: none; /* Fixes rounded corners on iOS */
+            -webkit-appearance: none;
         }
         
         button { 
@@ -83,6 +81,20 @@
         
         .order-list { list-style: none; padding: 0; line-height: 2; font-size: 1rem; }
         .order-list strong { color: #b5835a; }
+
+        .faq-item { text-align: left; margin-bottom: 25px; padding: 0 10px; }
+        .faq-item h3 { font-size: 1.1rem; color: #b5835a; margin-bottom: 5px; font-family: Georgia, serif; }
+        .faq-item p { margin: 0; line-height: 1.5; font-size: 0.95rem; }
+
+        .notes-box { 
+            background: #faf9f6; 
+            padding: 20px; 
+            border-radius: 10px; 
+            font-size: 0.9rem; 
+            font-style: italic;
+            text-align: left;
+            border-left: 3px solid #b5835a;
+        }
 
         .rsvp-container {
             margin-top: -10px;
@@ -131,6 +143,40 @@
         </section>
 
         <section class="section">
+            <h2>Questions &amp; Answers</h2>
+            
+            <div class="faq-item">
+                <h3>Dress Code</h3>
+                <p>The dress code is formal wear. We encourage you to wear colourful clothing but to be comfortable for warm weather. Please do not wear all white or black.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is a C&eacute;il&iacute;?</h3>
+                <p>A traditional Irish gathering featuring folk music and lively group dancing. It will be led by a "caller" who guides participants through the steps. You will dance most dances with a partner but don't worry about securing these in advance. Please wear sensible footwear for this portion of the evening.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Parking</h3>
+                <p>Free parking is available behind the museum in a dedicated car park.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Gifting</h3>
+                <p>Should you wish to give a gift, we will have a fund available on the day.</p>
+            </div>
+
+            <div class="notes-box">
+                <p><strong>A few final notes:</strong></p>
+                <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+                    <li>We will both be keeping our respective family names.</li>
+                    <li>While we love your little ones, our wedding will be a child-free event (with the exception of Artur).</li>
+                    <li>We invite you to be fully present with us during our unplugged ceremony; please keep all devices switched off until the reception.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <p><strong>Please RSVP by 8th May 2026</strong></p>
             <div class="rsvp-container">
                 <script async src="https://tally.so/widgets/embed.js"></script>
                 <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0" title="Wedding RSVP"></iframe>
@@ -144,7 +190,6 @@
             if (pass === "Cat") { 
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
-                // Scroll to the top when page unlocks to reset any zoom artifacts
                 window.scrollTo(0,0);
                 startCountdown();
             } else {
