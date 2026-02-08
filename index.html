@@ -28,9 +28,9 @@
             background: rgba(255, 255, 255, 0.78); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            max-width: 650px;
+            max-width: 600px; /* Slightly narrower for a more "invitation" feel */
             margin: 20px auto;
-            padding: 30px 25px;
+            padding: 25px 20px;
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             display: none; 
@@ -40,54 +40,56 @@
         #login-screen { display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; text-align: center; }
         .login-box { background: rgba(255,255,255,0.9); padding: 50px 30px; border-radius: 15px; backdrop-filter: blur(5px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-width: 400px; width: 90%; }
 
-        h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: 600; font-style: normal; }
-        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-style: normal; }
+        h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 8px; font-weight: 600; }
+        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-top: 0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .section { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
+        .section { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
         .section:last-child { border-bottom: none; }
 
-        /* Timeline Styles */
-        .timeline { list-style: none; padding: 0; margin: 0 auto; max-width: 300px; text-align: left; }
-        .timeline-item { position: relative; padding-left: 30px; margin-bottom: 10px; border-left: 1px solid #8a6d3b; }
-        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px; background: #8a6d3b; border-radius: 50%; }
-        .timeline-time { font-weight: 700; color: #8a6d3b; font-size: 0.9rem; display: block; }
-        .timeline-event { font-size: 1.05rem; }
+        /* REFINED MINIMALIST TIMELINE */
+        .timeline-container {
+            margin: 10px auto;
+            max-width: 350px;
+        }
+        .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 0.5px solid rgba(138, 109, 59, 0.1);
+        }
+        .tm-time { font-weight: 700; color: #8a6d3b; font-size: 0.85rem; text-transform: uppercase; width: 80px; text-align: left; }
+        .tm-event { flex: 1; text-align: right; font-size: 1rem; color: #2c3e50; }
 
-        .faq-item { text-align: left; margin-bottom: 15px; }
-        .faq-item h3 { font-size: 1.1rem; color: #8a6d3b; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
-        .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: #1a252f; }
+        .faq-item { text-align: left; margin-bottom: 12px; }
+        .faq-item h3 { font-size: 1.05rem; color: #8a6d3b; margin-bottom: 3px; font-family: 'Playfair Display', serif; }
+        .faq-item p { margin: 0; font-size: 0.9rem; line-height: 1.4; color: #1a252f; }
 
-        .notes-box { background: rgba(138, 109, 59, 0.08); padding: 20px; border-radius: 8px; font-size: 0.9rem; text-align: left; margin-top: 15px; border-left: 3px solid #8a6d3b; }
+        .notes-box { background: rgba(138, 109, 59, 0.08); padding: 15px; border-radius: 8px; font-size: 0.85rem; text-align: left; margin-top: 10px; border-left: 3px solid #8a6d3b; }
 
-        /* SCROLLABLE GALLERY STYLES */
+        /* TOUCH GALLERY */
         .scroll-gallery {
             display: flex;
-            overflow-x: auto; /* Enables horizontal scroll */
-            scroll-snap-type: x mandatory; /* Makes images snap into place */
-            gap: 15px;
-            padding-bottom: 15px;
-            scrollbar-width: thin; /* For Firefox */
-            scrollbar-color: #8a6d3b transparent;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding-bottom: 10px;
         }
-
-        /* Styling the scrollbar for Chrome/Safari */
-        .scroll-gallery::-webkit-scrollbar { height: 6px; }
-        .scroll-gallery::-webkit-scrollbar-thumb { background: #8a6d3b; border-radius: 10px; }
-
         .scroll-gallery img {
-            flex: 0 0 100%; /* Each photo takes full width of the container */
+            flex: 0 0 100%;
             scroll-snap-align: center;
-            height: 600px;
+            height: 550px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
 
-        .intro-text { font-size: 1.05rem; line-height: 1.5; margin: 15px 0; }
-        .countdown-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #8a6d3b; font-weight: 600; display: block; margin-top: 10px; }
-        input { padding: 15px; border: 1px solid #dcdde1; width: 100%; box-sizing: border-box; margin-bottom: 15px; font-size: 16px; text-align: center; border-radius: 4px; }
-        button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
-        .rsvp-container { margin-top: 5px; overflow: hidden; }
+        /* Tightening the RSVP section */
+        .rsvp-container { margin-top: 0px; height: 480px; overflow: hidden; }
+
+        .intro-text { font-size: 1rem; line-height: 1.4; margin: 10px 0; }
+        .countdown-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #8a6d3b; font-weight: 600; display: block; margin-top: 8px; }
+        input { padding: 12px; border: 1px solid #dcdde1; width: 100%; box-sizing: border-box; margin-bottom: 10px; font-size: 16px; text-align: center; border-radius: 4px; }
+        button { padding: 14px 25px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -113,11 +115,14 @@
 
         <section class="section">
             <h2>Order of the Day</h2>
-            <div class="timeline">
-                <div class="timeline-item"><span class="timeline-time">2:00 PM</span><span class="timeline-event">Ceremony</span></div>
-                <div class="timeline-item"><span class="timeline-time">4:00 PM</span><span class="timeline-event">Wedding Breakfast</span></div>
-                <div class="timeline-item"><span class="timeline-time">6:00 PM</span><span class="timeline-event">C&eacute;il&iacute;</span></div>
-                <div class="timeline-item"><span class="timeline-time">8:00 PM</span><span class="timeline-event">DJ &amp; Dancing</span></div>
+            <div class="timeline-container">
+                <div class="timeline-row"><span class="tm-time">2:00 PM</span><span class="tm-event">Ceremony</span></div>
+                <div class="timeline-row"><span class="tm-time">3:00 PM</span><span class="tm-event">Drinks & Photography</span></div>
+                <div class="timeline-row"><span class="tm-time">4:00 PM</span><span class="tm-event">Wedding Breakfast</span></div>
+                <div class="timeline-row"><span class="tm-time">5:30 PM</span><span class="tm-event">Speeches</span></div>
+                <div class="timeline-row"><span class="tm-time">6:00 PM</span><span class="tm-event">C&eacute;il&iacute;</span></div>
+                <div class="timeline-row"><span class="tm-time">8:00 PM</span><span class="tm-event">DJ & Dancing</span></div>
+                <div class="timeline-row"><span class="tm-time">11:30 PM</span><span class="tm-event">Carriages</span></div>
             </div>
         </section>
 
@@ -125,7 +130,7 @@
             <h2>Questions &amp; Answers</h2>
             <div class="faq-item">
                 <h3>The Venue</h3>
-                <p>The museum will be open to the public during the day until 5:30. When you arrive please head to the second floor to the reception area (the music room). There is a lift available.</p>
+                <p>The museum will be open to the public during the day until 5:30, please be respectful of the museum visitors. When you arrive please head to the second floor to the reception area (the music room). There is a lift available. During the day you're welcome to wander around the museum and view the artwork. Please note you cannot take your drinks around the galleries on the first or ground floor, you're ok to walk around the second floor with your drinks. Please note, red wine will not be served until the evening, to protect the floors.</p>
             </div>
             <div class="faq-item">
                 <h3>Dress Code</h3>
@@ -145,8 +150,8 @@
             </div>
 
             <div class="notes-box">
-                <p style="margin: 0 0 10px 0; font-weight: 700; color: #8a6d3b;">Additional information about the day:</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.5;">
+                <p style="margin: 0 0 8px 0; font-weight: 700; color: #8a6d3b;">Additional information about the day:</p>
+                <ul style="margin: 0; padding-left: 18px; line-height: 1.4;">
                     <li>We will both be keeping our respective family names.</li>
                     <li>While we love your little ones, our wedding will be a child-free event (with the exception of Rhys's nephew Arthur).</li>
                     <li>We invite you to be fully present during our unplugged ceremony; please keep devices switched off until the reception.</li>
@@ -155,23 +160,22 @@
         </section>
 
         <section class="section">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #576574; margin-bottom: 10px;"><strong>RSVP by 8th May 2026</strong></p>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #576574; margin-bottom: 5px;"><strong>RSVP by 8th May 2026</strong></p>
             <div class="rsvp-container">
                 <script async src="https://tally.so/widgets/embed.js"></script>
-                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="550" frameborder="0" title="Wedding RSVP"></iframe>
+                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="480" frameborder="0" title="Wedding RSVP"></iframe>
             </div>
         </section>
 
         <section class="section" style="border-bottom: none;">
             <h2>Gallery</h2>
-            <p style="margin-top: -10px; font-size: 0.9rem; color: #576574; margin-bottom: 15px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
-            
+            <p style="margin-top: -10px; font-size: 0.85rem; color: #576574; margin-bottom: 12px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
             <div class="scroll-gallery">
                 <img src="photo_1.jpg" alt="Dáire and Rhys 1">
                 <img src="photo_2.jpg" alt="Dáire and Rhys 2">
                 <img src="photo_3.jpg" alt="Dáire and Rhys 3">
             </div>
-            <p style="text-align: center; font-size: 0.8rem; color: #8a6d3b; margin-top: 10px;">&larr; Swipe to view &rarr;</p>
+            <p style="text-align: center; font-size: 0.75rem; color: #8a6d3b; margin-top: 5px;">&larr; Swipe to view &rarr;</p>
         </section>
     </div>
 
