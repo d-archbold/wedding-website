@@ -28,7 +28,7 @@
             background: rgba(255, 255, 255, 0.78); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            max-width: 600px; /* Slightly narrower for a more "invitation" feel */
+            max-width: 580px;
             margin: 20px auto;
             padding: 25px 20px;
             border-radius: 15px;
@@ -40,55 +40,45 @@
         #login-screen { display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; text-align: center; }
         .login-box { background: rgba(255,255,255,0.9); padding: 50px 30px; border-radius: 15px; backdrop-filter: blur(5px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-width: 400px; width: 90%; }
 
-        h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 8px; font-weight: 600; }
-        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-top: 0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; font-weight: 600; }
+        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 5px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
 
         .section { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
-        .section:last-child { border-bottom: none; }
 
-        /* REFINED MINIMALIST TIMELINE */
-        .timeline-container {
-            margin: 10px auto;
-            max-width: 350px;
-        }
-        .timeline-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding-bottom: 4px;
-            border-bottom: 0.5px solid rgba(138, 109, 59, 0.1);
-        }
-        .tm-time { font-weight: 700; color: #8a6d3b; font-size: 0.85rem; text-transform: uppercase; width: 80px; text-align: left; }
-        .tm-event { flex: 1; text-align: right; font-size: 1rem; color: #2c3e50; }
+        /* COMPACT TIMELINE */
+        .timeline-container { margin: 10px auto; max-width: 400px; }
+        .timeline-subhead { font-size: 0.7rem; color: #8a6d3b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; border-bottom: 1px solid rgba(138, 109, 59, 0.2); display: inline-block; }
+        .timeline-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .tm-time { font-weight: 700; color: #8a6d3b; font-size: 0.85rem; width: 75px; text-align: left; }
+        .tm-event { flex: 1; text-align: right; font-size: 0.95rem; }
 
-        .faq-item { text-align: left; margin-bottom: 12px; }
-        .faq-item h3 { font-size: 1.05rem; color: #8a6d3b; margin-bottom: 3px; font-family: 'Playfair Display', serif; }
-        .faq-item p { margin: 0; font-size: 0.9rem; line-height: 1.4; color: #1a252f; }
+        .faq-item { text-align: left; margin-bottom: 10px; }
+        .faq-item h3 { font-size: 1rem; color: #8a6d3b; margin-bottom: 2px; font-family: 'Playfair Display', serif; }
+        .faq-item p { margin: 0; font-size: 0.88rem; line-height: 1.4; }
 
         .notes-box { background: rgba(138, 109, 59, 0.08); padding: 15px; border-radius: 8px; font-size: 0.85rem; text-align: left; margin-top: 10px; border-left: 3px solid #8a6d3b; }
 
-        /* TOUCH GALLERY */
-        .scroll-gallery {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 10px;
-            padding-bottom: 10px;
-        }
-        .scroll-gallery img {
-            flex: 0 0 100%;
-            scroll-snap-align: center;
-            height: 550px;
-            object-fit: cover;
+        /* RSVP BOX HACK: Clips the Tally padding */
+        .rsvp-outer {
+            position: relative;
+            height: 420px; /* Fixed height for the form section */
+            overflow: hidden;
+            border: 1px solid rgba(138, 109, 59, 0.1);
             border-radius: 8px;
+            background: rgba(255,255,255,0.3);
+        }
+        .rsvp-outer iframe {
+            position: absolute;
+            top: -50px; /* Moves the form up to hide Tally's top white space */
+            left: 0;
+            width: 100%;
+            height: 800px; /* Keeps internal height long enough to scroll */
         }
 
-        /* Tightening the RSVP section */
-        .rsvp-container { margin-top: 0px; height: 480px; overflow: hidden; }
+        .scroll-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; }
+        .scroll-gallery img { flex: 0 0 100%; scroll-snap-align: center; height: 500px; object-fit: cover; border-radius: 8px; }
 
-        .intro-text { font-size: 1rem; line-height: 1.4; margin: 10px 0; }
-        .countdown-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #8a6d3b; font-weight: 600; display: block; margin-top: 8px; }
-        input { padding: 12px; border: 1px solid #dcdde1; width: 100%; box-sizing: border-box; margin-bottom: 10px; font-size: 16px; text-align: center; border-radius: 4px; }
+        input { padding: 12px; border: 1px solid #dcdde1; width: 100%; margin-bottom: 10px; font-size: 16px; text-align: center; border-radius: 4px; }
         button { padding: 14px 25px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
     </style>
 </head>
@@ -97,29 +87,32 @@
     <div id="login-screen">
         <div class="login-box">
             <h1>Welcome</h1>
-            <p style="font-size: 1.1rem; margin-bottom: 25px; color: #1a252f;">Welcome to the wedding website for <br><strong>D&aacute;ire and Rhys</strong></p>
+            <p style="font-size: 1rem; margin-bottom: 20px; color: #1a252f;">Welcome to the wedding website for <br><strong>D&aacute;ire and Rhys</strong></p>
             <input type="password" id="pass-input" placeholder="Enter Password">
             <button onclick="checkPassword()">Enter Site</button>
-            <p id="error-msg" style="color: #c0392b; font-size: 0.85rem; margin-top: 15px;"></p>
+            <p id="error-msg" style="color: #c0392b; font-size: 0.8rem; margin-top: 10px;"></p>
         </div>
     </div>
 
     <div id="wedding-content" class="content-wrapper">
         <header class="section">
-            <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
-            <p class="intro-text">
+            <h1 style="font-size: 1.6rem;">D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
+            <p style="font-size: 0.95rem; margin: 10px 0; line-height: 1.4;">
                 You're invited to the wedding celebration of D&aacute;ire and Rhys at the Bowes Museum in Barnard Castle, County Durham.
-                <span class="countdown-text">Only <span id="days-count">0</span> days to go!</span>
+                <span style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #8a6d3b; display: block; margin-top: 8px;">Only <span id="days-count">0</span> days to go!</span>
             </p>
         </header>
 
         <section class="section">
             <h2>Order of the Day</h2>
             <div class="timeline-container">
+                <div class="timeline-subhead">The Celebration</div>
                 <div class="timeline-row"><span class="tm-time">2:00 PM</span><span class="tm-event">Ceremony</span></div>
                 <div class="timeline-row"><span class="tm-time">3:00 PM</span><span class="tm-event">Drinks & Photography</span></div>
                 <div class="timeline-row"><span class="tm-time">4:00 PM</span><span class="tm-event">Wedding Breakfast</span></div>
                 <div class="timeline-row"><span class="tm-time">5:30 PM</span><span class="tm-event">Speeches</span></div>
+                
+                <div class="timeline-subhead" style="margin-top:10px;">The Party</div>
                 <div class="timeline-row"><span class="tm-time">6:00 PM</span><span class="tm-event">C&eacute;il&iacute;</span></div>
                 <div class="timeline-row"><span class="tm-time">8:00 PM</span><span class="tm-event">DJ & Dancing</span></div>
                 <div class="timeline-row"><span class="tm-time">11:30 PM</span><span class="tm-event">Carriages</span></div>
@@ -130,28 +123,16 @@
             <h2>Questions &amp; Answers</h2>
             <div class="faq-item">
                 <h3>The Venue</h3>
-                <p>The museum will be open to the public during the day until 5:30, please be respectful of the museum visitors. When you arrive please head to the second floor to the reception area (the music room). There is a lift available. During the day you're welcome to wander around the museum and view the artwork. Please note you cannot take your drinks around the galleries on the first or ground floor, you're ok to walk around the second floor with your drinks. Please note, red wine will not be served until the evening, to protect the floors.</p>
+                <p style="font-size: 0.85rem;">The museum will be open to the public during the day until 5:30, please be respectful of the museum visitors. When you arrive please head to the second floor to the reception area (the music room). There is a lift available. During the day you're welcome to wander around the museum and view the artwork. Please note you cannot take your drinks around the galleries on the first or ground floor, you're ok to walk around the second floor with your drinks. Please note, red wine will not be served until the evening, to protect the floors.</p>
             </div>
-            <div class="faq-item">
-                <h3>Dress Code</h3>
-                <p>Formal wear. Colourful clothing encouraged; please avoid all white or black.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What is a C&eacute;il&iacute;?</h3>
-                <p>A traditional Irish gathering with group dancing. No experience needed! Please wear sensible footwear.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Gifting</h3>
-                <p>Should you wish to give a gift, a wedding fund will be available on the day.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Parking</h3>
-                <p>Free parking is available behind the museum in a dedicated car park.</p>
-            </div>
+            <div class="faq-item"><h3>Dress Code</h3><p>Formal wear. Colourful clothing encouraged; please avoid all white or black.</p></div>
+            <div class="faq-item"><h3>What is a C&eacute;il&iacute;?</h3><p>A traditional Irish gathering with group dancing. No experience needed! Please wear sensible footwear.</p></div>
+            <div class="faq-item"><h3>Gifting</h3><p>Should you wish to give a gift, a wedding fund will be available on the day.</p></div>
+            <div class="faq-item"><h3>Parking</h3><p>Free parking is available behind the museum in a dedicated car park.</p></div>
 
             <div class="notes-box">
-                <p style="margin: 0 0 8px 0; font-weight: 700; color: #8a6d3b;">Additional information about the day:</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.4;">
+                <p style="margin: 0 0 5px 0; font-weight: 700; color: #8a6d3b;">Additional information about the day:</p>
+                <ul style="margin: 0; padding-left: 15px; line-height: 1.4;">
                     <li>We will both be keeping our respective family names.</li>
                     <li>While we love your little ones, our wedding will be a child-free event (with the exception of Rhys's nephew Arthur).</li>
                     <li>We invite you to be fully present during our unplugged ceremony; please keep devices switched off until the reception.</li>
@@ -160,42 +141,32 @@
         </section>
 
         <section class="section">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #576574; margin-bottom: 5px;"><strong>RSVP by 8th May 2026</strong></p>
-            <div class="rsvp-container">
+            <h2 style="margin-bottom: 5px;">RSVP</h2>
+            <p style="font-size: 0.85rem; color: #576574; margin-bottom: 10px;">Please respond by 8th May 2026</p>
+            <div class="rsvp-outer">
                 <script async src="https://tally.so/widgets/embed.js"></script>
-                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="480" frameborder="0" title="Wedding RSVP"></iframe>
+                <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" frameborder="0" title="Wedding RSVP"></iframe>
             </div>
         </section>
 
         <section class="section" style="border-bottom: none;">
             <h2>Gallery</h2>
-            <p style="margin-top: -10px; font-size: 0.85rem; color: #576574; margin-bottom: 12px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
+            <p style="margin-top: -10px; font-size: 0.8rem; color: #576574; margin-bottom: 10px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
             <div class="scroll-gallery">
-                <img src="photo_1.jpg" alt="Dáire and Rhys 1">
-                <img src="photo_2.jpg" alt="Dáire and Rhys 2">
-                <img src="photo_3.jpg" alt="Dáire and Rhys 3">
+                <img src="photo_1.jpg"><img src="photo_2.jpg"><img src="photo_3.jpg">
             </div>
-            <p style="text-align: center; font-size: 0.75rem; color: #8a6d3b; margin-top: 5px;">&larr; Swipe to view &rarr;</p>
         </section>
     </div>
 
     <script>
         function checkPassword() {
-            const pass = document.getElementById('pass-input').value;
-            if (pass === "Cat") { 
+            if (document.getElementById('pass-input').value === "Cat") { 
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
-                window.scrollTo(0,0);
-                updateCountdown();
-            } else {
-                document.getElementById('error-msg').innerText = "Incorrect password.";
-            }
-        }
-        function updateCountdown() {
-            const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
-            const now = new Date().getTime();
-            const days = Math.floor((weddingDate - now) / (1000 * 60 * 60 * 24));
-            document.getElementById("days-count").innerHTML = days > 0 ? days : 0;
+                const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
+                const now = new Date().getTime();
+                document.getElementById("days-count").innerHTML = Math.floor((weddingDate - now) / (1000 * 60 * 60 * 24));
+            } else { document.getElementById('error-msg').innerText = "Incorrect password."; }
         }
     </script>
 </body>
