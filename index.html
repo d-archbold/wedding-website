@@ -22,7 +22,39 @@
             background-size: cover;
             min-height: 100vh;
             letter-spacing: 0.5px;
-            font-size: 18px; /* Increased base size */
+            font-size: 18px;
+        }
+
+        /* CENTER THE LOGIN BOX */
+        #login-screen { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            width: 100%; 
+            box-sizing: border-box;
+        }
+
+        .login-box { 
+            background: rgba(255,255,255,0.9); 
+            padding: 40px 30px; 
+            border-radius: 15px; 
+            max-width: 350px; 
+            width: 85%; 
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInEffect 0.8s ease-out;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #dcdde1;
+            border-radius: 4px;
+            box-sizing: border-box; /* Crucial for alignment */
+            font-size: 18px;
+            text-align: center;
         }
 
         .content-wrapper {
@@ -38,15 +70,12 @@
             animation: fadeInEffect 1.2s ease-out;
         }
 
-        #login-screen { display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; text-align: center; }
-        .login-box { background: rgba(255,255,255,0.9); padding: 50px 30px; border-radius: 15px; max-width: 400px; width: 90%; }
-
         h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 12px; font-weight: 600; }
         h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 10px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
 
         .section { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
 
-        /* SIDE-BY-SIDE TIMELINE */
+        /* TIMELINE */
         .timeline-container { margin: 15px 0; }
         .timeline-subhead { font-size: 0.8rem; color: #8a6d3b; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid rgba(138, 109, 59, 0.3); display: block; width: 100%; }
         .timeline-row { display: flex; align-items: baseline; margin-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 5px; }
@@ -59,12 +88,12 @@
 
         .notes-box { background: rgba(138, 109, 59, 0.08); padding: 20px; border-radius: 8px; font-size: 0.95rem; text-align: left; margin-top: 15px; border-left: 4px solid #8a6d3b; }
 
-        /* DISTINCT RSVP BORDER */
+        /* RSVP */
         .rsvp-outer {
             position: relative;
             height: 550px; 
             overflow: hidden;
-            border: 2px solid #8a6d3b; /* More distinct border */
+            border: 2px solid #8a6d3b; 
             border-radius: 10px;
             background: #ffffff;
             margin-top: 15px;
@@ -77,7 +106,7 @@
             height: 1100px; 
         }
 
-        /* SWIPE GALLERY */
+        /* GALLERY */
         .scroll-gallery {
             display: flex;
             overflow-x: auto;
@@ -95,7 +124,6 @@
         }
 
         .intro-text { font-size: 1.15rem; line-height: 1.6; }
-        input { padding: 15px; border: 1px solid #dcdde1; width: 100%; margin-bottom: 15px; font-size: 18px; text-align: center; border-radius: 4px; }
         button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
     </style>
 </head>
