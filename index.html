@@ -58,10 +58,10 @@
 
         .notes-box { background: rgba(138, 109, 59, 0.08); padding: 15px; border-radius: 8px; font-size: 0.85rem; text-align: left; margin-top: 10px; border-left: 3px solid #8a6d3b; }
 
-        /* RSVP BOX HACK: Clips the Tally padding */
+        /* RSVP BOX STYLES */
         .rsvp-outer {
             position: relative;
-            height: 420px; /* Fixed height for the form section */
+            height: 520px; /* Restored height */
             overflow: hidden;
             border: 1px solid rgba(138, 109, 59, 0.1);
             border-radius: 8px;
@@ -69,14 +69,32 @@
         }
         .rsvp-outer iframe {
             position: absolute;
-            top: -50px; /* Moves the form up to hide Tally's top white space */
+            top: -20px; /* Reduced crop to avoid cutting off text */
             left: 0;
             width: 100%;
-            height: 800px; /* Keeps internal height long enough to scroll */
+            height: 1000px; /* Scrollable internal space */
         }
 
-        .scroll-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; }
-        .scroll-gallery img { flex: 0 0 100%; scroll-snap-align: center; height: 500px; object-fit: cover; border-radius: 8px; }
+        /* RESTORED SWIPE GALLERY */
+        .scroll-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scroll-gallery img {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        /* Custom scrollbar to make it look nicer */
+        .scroll-gallery::-webkit-scrollbar { height: 4px; }
+        .scroll-gallery::-webkit-scrollbar-thumb { background: #8a6d3b; border-radius: 10px; }
 
         input { padding: 12px; border: 1px solid #dcdde1; width: 100%; margin-bottom: 10px; font-size: 16px; text-align: center; border-radius: 4px; }
         button { padding: 14px 25px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
@@ -147,14 +165,18 @@
                 <script async src="https://tally.so/widgets/embed.js"></script>
                 <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" frameborder="0" title="Wedding RSVP"></iframe>
             </div>
+            <p style="text-align: center; font-size: 0.75rem; color: #8a6d3b; margin-top: 8px;">Scroll within the box to complete the form</p>
         </section>
 
         <section class="section" style="border-bottom: none;">
             <h2>Gallery</h2>
-            <p style="margin-top: -10px; font-size: 0.8rem; color: #576574; margin-bottom: 10px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
+            <p style="margin-top: -10px; font-size: 0.8rem; color: #576574; margin-bottom: 15px;">Some photos of D&aacute;ire and Rhys over the last 8 years.</p>
             <div class="scroll-gallery">
-                <img src="photo_1.jpg"><img src="photo_2.jpg"><img src="photo_3.jpg">
+                <img src="photo_1.jpg" alt="Dáire and Rhys 1">
+                <img src="photo_2.jpg" alt="Dáire and Rhys 2">
+                <img src="photo_3.jpg" alt="Dáire and Rhys 3">
             </div>
+            <p style="text-align: center; font-size: 0.75rem; color: #8a6d3b; margin-top: 5px;">&larr; Swipe to view &rarr;</p>
         </section>
     </div>
 
