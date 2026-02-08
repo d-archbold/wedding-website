@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex"> 
     <title>Dáire & Rhys | June 27, 2026</title>
     <style>
@@ -12,58 +12,80 @@
             margin: 0;
             background-color: #f4f1ea; 
             color: #444;
+            /* Prevents horizontal scroll if elements peek out */
+            overflow-x: hidden; 
         }
 
         .content-wrapper {
             background: white; 
             max-width: 700px;
-            margin: 20px auto; /* Reduced top margin from 50px to 20px */
-            padding: 40px;
+            margin: 20px auto;
+            padding: 40px 20px; /* Adjusted padding for mobile */
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: none; 
         }
 
-        /* Moved Login Screen to the top */
         #login-screen { 
-            padding: 40px 20px; /* Reduced top padding from 100px to 40px */
+            padding: 40px 20px; 
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 80vh;
+            justify-content: center;
         }
 
         .section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
         .section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
-        h1 { color: #b5835a; font-family: Georgia, serif; }
-        h2 { color: #8e6543; font-size: 1.5rem; margin-bottom: 15px; }
+        h1 { color: #b5835a; font-family: Georgia, serif; font-size: 1.8rem; }
+        h2 { color: #8e6543; font-size: 1.4rem; margin-bottom: 15px; }
         
         #countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-top: 20px;
         }
         .time-unit {
             background: #b5835a;
             color: white;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
-            min-width: 60px;
+            min-width: 55px;
         }
-        .time-unit span { display: block; font-size: 1.5rem; font-weight: bold; }
-        .label { font-size: 0.7rem; text-transform: uppercase; }
+        .time-unit span { display: block; font-size: 1.2rem; font-weight: bold; }
+        .label { font-size: 0.6rem; text-transform: uppercase; }
 
-        input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; width: 220px; margin-bottom: 10px; }
-        button { padding: 12px 25px; background: #b5835a; color: white; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        input { 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            width: 220px; 
+            margin-bottom: 10px;
+            /* FONT SIZE MUST BE 16PX TO PREVENT ZOOM */
+            font-size: 16px; 
+            -webkit-appearance: none; /* Fixes rounded corners on iOS */
+        }
+        
+        button { 
+            padding: 12px 25px; 
+            background: #b5835a; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 16px;
+            transition: 0.3s; 
+        }
         button:hover { background: #8e6543; }
         
-        .order-list { list-style: none; padding: 0; line-height: 2; }
+        .order-list { list-style: none; padding: 0; line-height: 2; font-size: 1rem; }
         .order-list strong { color: #b5835a; }
 
-        /* Reduced space for RSVP container */
         .rsvp-container {
-            margin-top: -10px; /* Pulls the form up slightly */
+            margin-top: -10px;
             overflow: hidden;
         }
     </style>
@@ -108,7 +130,7 @@
             </ul>
         </section>
 
-        <section class="section" style="border-bottom: none;">
+        <section class="section">
             <div class="rsvp-container">
                 <script async src="https://tally.so/widgets/embed.js"></script>
                 <iframe data-tally-src="https://tally.so/r/682eZO?transparentBackground=1" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0" title="Wedding RSVP"></iframe>
@@ -122,6 +144,8 @@
             if (pass === "Cat") { 
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
+                // Scroll to the top when page unlocks to reset any zoom artifacts
+                window.scrollTo(0,0);
                 startCountdown();
             } else {
                 document.getElementById('error-msg').innerText = "Incorrect password, please try again.";
