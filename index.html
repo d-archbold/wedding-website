@@ -18,7 +18,7 @@
             font-family: 'Lato', sans-serif; 
             margin: 0;
             color: #1a252f;
-            background: url('background.jpg') no-repeat center center fixed;
+            background: #fdfcfb url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             letter-spacing: 0.5px;
@@ -36,7 +36,7 @@
         }
 
         .login-box { 
-            background: rgba(255,255,255,0.9); 
+            background: rgba(255,255,255,0.95); 
             padding: 40px 30px; 
             border-radius: 15px; 
             max-width: 350px; 
@@ -52,13 +52,13 @@
             margin-bottom: 15px;
             border: 1px solid #dcdde1;
             border-radius: 4px;
-            box-sizing: border-box; /* Crucial for alignment */
+            box-sizing: border-box;
             font-size: 18px;
             text-align: center;
         }
 
         .content-wrapper {
-            background: rgba(255, 255, 255, 0.78); 
+            background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             max-width: 600px;
@@ -121,10 +121,12 @@
             height: 550px;
             object-fit: cover;
             border-radius: 8px;
+            background-color: #eee;
         }
 
         .intro-text { font-size: 1.15rem; line-height: 1.6; }
-        button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; }
+        button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 4px; transition: background 0.3s; }
+        button:hover { background: #6d562f; }
     </style>
 </head>
 <body>
@@ -208,14 +210,32 @@
     </div>
 
     <script>
+        // Allow user to press "Enter" to submit password
+        document.getElementById('pass-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
         function checkPassword() {
-            if (document.getElementById('pass-input').value === "Cat") { 
+            const enteredPass = document.getElementById('pass-input').value;
+            // Password set to Bowes
+            if (enteredPass === "Bowes") { 
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
+                
+                // Countdown calculation
                 const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
                 const now = new Date().getTime();
-                document.getElementById("days-count").innerHTML = Math.floor((weddingDate - now) / (1000 * 60 * 60 * 24));
-            } else { document.getElementById('error-msg').innerText = "Incorrect password."; }
+                const timeLeft = weddingDate - now;
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                
+                document.getElementById("days-count").innerHTML = days > 0 ? days : 0;
+                
+                window.scrollTo(0, 0);
+            } else { 
+                document.getElementById('error-msg').innerText = "Incorrect password."; 
+            }
         }
     </script>
 </body>
