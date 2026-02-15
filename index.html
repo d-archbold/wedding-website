@@ -14,7 +14,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* THE SHARP BACKGROUND */
+        /* FULL SCREEN BACKGROUND - NO REPEAT */
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
@@ -22,12 +22,12 @@
             min-height: 100vh;
             letter-spacing: 0.5px;
             font-size: 18px;
-            background: url('background.jpg') repeat;
-            background-size: 500px;
-            background-attachment: fixed;
+            /* background-size: cover ensures it fills the page without repeating */
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        /* LOGIN SCREEN WITH BLUR */
+        /* LOGIN SCREEN WITH REDUCED BLUR */
         #login-screen { 
             display: flex; 
             justify-content: center; 
@@ -40,20 +40,20 @@
             top: 0;
             left: 0;
             z-index: 100;
-            /* This blurs the background ONLY when login is visible */
-            backdrop-filter: blur(15px) brightness(0.9);
-            -webkit-backdrop-filter: blur(15px) brightness(0.9);
-            background: rgba(255, 255, 255, 0.2);
+            /* Blur reduced from 15px to 4px for a much clearer look */
+            backdrop-filter: blur(4px) brightness(0.95);
+            -webkit-backdrop-filter: blur(4px) brightness(0.95);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .login-box { 
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 40px 30px; 
             max-width: 350px; 
             width: 100%; 
             text-align: center;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             animation: fadeInEffect 0.8s ease-out;
         }
 
@@ -68,13 +68,13 @@
             text-align: center;
         }
 
-        /* MAIN CONTENT - REVEALED SHARP */
+        /* MAIN CONTENT - CRYSTAL CLEAR */
         .content-wrapper {
             max-width: 650px;
             margin: 40px auto;
             padding: 40px 25px;
             display: none; 
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.96);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             position: relative;
@@ -191,6 +191,7 @@
     </div>
 
     <script>
+        // Enter key support
         document.getElementById('pass-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') { checkPassword(); }
         });
@@ -198,10 +199,10 @@
         function checkPassword() {
             const enteredPass = document.getElementById('pass-input').value;
             if (enteredPass.toLowerCase() === "bowes") { 
-                // Hiding the login screen removes the blur effect automatically
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
                 
+                // Set countdown
                 const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
                 const now = new Date().getTime();
                 const timeLeft = weddingDate - now;
