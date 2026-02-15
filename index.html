@@ -14,7 +14,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* FULL SCREEN BACKGROUND - NO REPEAT */
+        /* BACKGROUND SET TO SHOW FULL PHOTO */
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
@@ -22,12 +22,17 @@
             min-height: 100vh;
             letter-spacing: 0.5px;
             font-size: 18px;
-            /* background-size: cover ensures it fills the page without repeating */
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            /* Change the hex code #fdfcfb below if you want a different "fill" color */
+            background-color: #fdfcfb; 
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-position: top center;
+            /* 'contain' shows the whole photo; 'scroll' lets the background move with you */
+            background-size: contain;
+            background-attachment: scroll; 
         }
 
-        /* LOGIN SCREEN WITH REDUCED BLUR */
+        /* LOGIN SCREEN WITH SUBTLE BLUR */
         #login-screen { 
             display: flex; 
             justify-content: center; 
@@ -40,10 +45,9 @@
             top: 0;
             left: 0;
             z-index: 100;
-            /* Blur reduced from 15px to 4px for a much clearer look */
             backdrop-filter: blur(4px) brightness(0.95);
             -webkit-backdrop-filter: blur(4px) brightness(0.95);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .login-box { 
@@ -68,10 +72,10 @@
             text-align: center;
         }
 
-        /* MAIN CONTENT - CRYSTAL CLEAR */
+        /* CONTENT CARD */
         .content-wrapper {
-            max-width: 650px;
-            margin: 40px auto;
+            max-width: 600px;
+            margin: 100px auto 40px auto; /* Added top margin to show more of the photo */
             padding: 40px 25px;
             display: none; 
             background: rgba(255, 255, 255, 0.96);
@@ -117,6 +121,7 @@
         @media (max-width: 480px) {
             h1 { font-size: 1.8rem; }
             .content-wrapper { padding: 25px 15px; margin: 15px auto; width: 92%; }
+            body { background-size: 100% auto; } /* Ensure it fits width on mobile */
         }
     </style>
 </head>
@@ -191,7 +196,6 @@
     </div>
 
     <script>
-        // Enter key support
         document.getElementById('pass-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') { checkPassword(); }
         });
@@ -202,7 +206,6 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
                 
-                // Set countdown
                 const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
                 const now = new Date().getTime();
                 const timeLeft = weddingDate - now;
