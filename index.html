@@ -14,7 +14,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* THE BLURRED COLLAGE BACKGROUND */
+        /* THE SHARP BACKGROUND */
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
@@ -22,24 +22,12 @@
             min-height: 100vh;
             letter-spacing: 0.5px;
             font-size: 18px;
-            /* Using the collage as a repeated background */
             background: url('background.jpg') repeat;
-            background-size: 500px; /* Adjust this to make the photos larger/smaller */
+            background-size: 500px;
             background-attachment: fixed;
         }
 
-        /* The Blur Overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* This tints the photos and blurs them */
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: -1;
-        }
-
+        /* LOGIN SCREEN WITH BLUR */
         #login-screen { 
             display: flex; 
             justify-content: center; 
@@ -48,22 +36,25 @@
             width: 100%; 
             padding: 20px;
             box-sizing: border-box;
-        }
-
-        /* Glassmorphism Cards */
-        .login-box, .content-wrapper { 
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-radius: 20px;
-            animation: fadeInEffect 0.8s ease-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            /* This blurs the background ONLY when login is visible */
+            backdrop-filter: blur(15px) brightness(0.9);
+            -webkit-backdrop-filter: blur(15px) brightness(0.9);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .login-box { 
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px 30px; 
             max-width: 350px; 
             width: 100%; 
             text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: fadeInEffect 0.8s ease-out;
         }
 
         .login-box input {
@@ -77,11 +68,18 @@
             text-align: center;
         }
 
+        /* MAIN CONTENT - REVEALED SHARP */
         .content-wrapper {
             max-width: 650px;
             margin: 40px auto;
             padding: 40px 25px;
             display: none; 
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 1;
+            animation: fadeInEffect 1s ease-out;
         }
 
         h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 12px; font-weight: 600; }
@@ -113,32 +111,12 @@
         }
         .rsvp-outer iframe { width: 100%; height: 100%; border: none; }
 
-        /* GALLERY */
-        .scroll-gallery {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 15px;
-            padding-bottom: 15px;
-            scrollbar-width: none;
-        }
-        .scroll-gallery::-webkit-scrollbar { display: none; }
-        .scroll-gallery img {
-            flex: 0 0 100%;
-            scroll-snap-align: center;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            background-color: #eee;
-        }
-
         button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 8px; transition: transform 0.2s, background 0.3s; }
         button:hover { background: #6d562f; transform: translateY(-2px); }
         
         @media (max-width: 480px) {
             h1 { font-size: 1.8rem; }
-            .content-wrapper { padding: 25px 15px; margin: 10px auto; }
-            .scroll-gallery img { height: 350px; }
+            .content-wrapper { padding: 25px 15px; margin: 15px auto; width: 92%; }
         }
     </style>
 </head>
@@ -202,24 +180,13 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" style="border-bottom: none;">
             <h2>RSVP</h2>
             <p style="font-size: 1rem; color: #576574; margin-bottom: 10px;">Please respond by <strong>8th May 2026</strong></p>
             <div class="rsvp-outer">
                 <iframe src="https://tally.so/r/682eZO?transparentBackground=1" title="Wedding RSVP"></iframe>
             </div>
             <p style="text-align: center; font-size: 0.85rem; color: #8a6d3b; margin-top: 10px; font-weight: bold;">&uarr; Scroll within the box to RSVP &darr;</p>
-        </section>
-
-        <section class="section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-            <h2>Gallery</h2>
-            <p style="margin-top: -10px; font-size: 1rem; color: #576574; margin-bottom: 15px;">D&aacute;ire and Rhys: 2018 &mdash; 2026</p>
-            <div class="scroll-gallery">
-                <img src="photo_1.jpg" alt="Photo 1">
-                <img src="photo_2.jpg" alt="Photo 2">
-                <img src="photo_3.jpg" alt="Photo 3">
-            </div>
-            <p style="text-align: center; font-size: 0.85rem; color: #8a6d3b; margin-top: 10px;">&larr; Swipe to view &rarr;</p>
         </section>
     </div>
 
@@ -231,6 +198,7 @@
         function checkPassword() {
             const enteredPass = document.getElementById('pass-input').value;
             if (enteredPass.toLowerCase() === "bowes") { 
+                // Hiding the login screen removes the blur effect automatically
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
                 
