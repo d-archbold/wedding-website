@@ -14,7 +14,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* BACKGROUND SET TO SHOW FULL PHOTO */
         body { 
             font-family: 'Lato', sans-serif; 
             margin: 0;
@@ -22,17 +21,19 @@
             min-height: 100vh;
             letter-spacing: 0.5px;
             font-size: 18px;
-            /* Change the hex code #fdfcfb below if you want a different "fill" color */
             background-color: #fdfcfb; 
+            /* Ensure your file is named background.jpg after converting from HEIC */
             background-image: url('background.jpg');
             background-repeat: no-repeat;
             background-position: top center;
-            /* 'contain' shows the whole photo; 'scroll' lets the background move with you */
             background-size: contain;
             background-attachment: scroll; 
+            
+            /* SHARPNESS FIXES */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
-        /* LOGIN SCREEN WITH SUBTLE BLUR */
         #login-screen { 
             display: flex; 
             justify-content: center; 
@@ -45,9 +46,10 @@
             top: 0;
             left: 0;
             z-index: 100;
-            backdrop-filter: blur(4px) brightness(0.95);
-            -webkit-backdrop-filter: blur(4px) brightness(0.95);
-            background: rgba(255, 255, 255, 0.3);
+            /* Light Blur for the welcome screen */
+            backdrop-filter: blur(5px) brightness(0.95);
+            -webkit-backdrop-filter: blur(5px) brightness(0.95);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .login-box { 
@@ -72,10 +74,10 @@
             text-align: center;
         }
 
-        /* CONTENT CARD */
         .content-wrapper {
             max-width: 600px;
-            margin: 100px auto 40px auto; /* Added top margin to show more of the photo */
+            /* Margin-top adjusted to let the top of your collage show clearly */
+            margin: 120px auto 60px auto; 
             padding: 40px 25px;
             display: none; 
             background: rgba(255, 255, 255, 0.96);
@@ -91,7 +93,6 @@
 
         .section { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
 
-        /* TIMELINE */
         .timeline-container { margin: 15px 0; }
         .timeline-subhead { font-size: 0.85rem; color: #8a6d3b; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid rgba(138, 109, 59, 0.3); display: block; width: 100%; }
         .timeline-row { display: flex; align-items: baseline; margin-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 5px; }
@@ -104,7 +105,6 @@
 
         .notes-box { background: rgba(138, 109, 59, 0.08); padding: 25px; border-radius: 12px; font-size: 0.95rem; text-align: left; margin-top: 15px; border-left: 5px solid #8a6d3b; }
 
-        /* RSVP */
         .rsvp-outer {
             height: 600px; 
             overflow: hidden;
@@ -121,7 +121,7 @@
         @media (max-width: 480px) {
             h1 { font-size: 1.8rem; }
             .content-wrapper { padding: 25px 15px; margin: 15px auto; width: 92%; }
-            body { background-size: 100% auto; } /* Ensure it fits width on mobile */
+            body { background-size: 100% auto; } 
         }
     </style>
 </head>
@@ -173,7 +173,7 @@
             <div class="faq-item"><h3>Dress Code</h3><p>Formal wear. Colourful clothing is encouraged; please avoid all white or all black.</p></div>
             <div class="faq-item"><h3>What is a C&eacute;il&iacute;?</h3><p>A traditional Irish gathering with group dancing. No experience needed! We recommend sensible footwear for dancing.</p></div>
             <div class="faq-item"><h3>Gifting</h3><p>Your presence is the greatest gift. Should you wish to contribute to our future together, a wedding fund will be available on the day.</p></div>
-            <div class="faq-item"><h3>Parking</h3><p>Free parking is available in the dedicated museum car park located behind the building.</p></div>
+            <div class="faq-item"><h3>Parking</h3><p>Free parking is available in the car park behind the building.</p></div>
 
             <div class="notes-box">
                 <p style="margin: 0 0 8px 0; font-weight: 700; color: #8a6d3b;">A few more notes:</p>
