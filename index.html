@@ -6,6 +6,7 @@
     <meta name="robots" content="noindex"> 
     <title>Dáire & Rhys | June 27, 2026</title>
     
+    <link rel="preload" as="image" href="background.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -22,6 +23,7 @@
             min-height: 100vh;
             letter-spacing: 0.5px;
             font-size: 18px;
+            /* Match this color to your photo's main tone for a smoother load */
             background-color: #fdfcfb; 
             background-image: url('background.jpg');
             background-repeat: no-repeat;
@@ -127,7 +129,7 @@
     <div id="login-screen">
         <div class="login-box">
             <h1>Welcome</h1>
-            <p style="font-size: 1.1rem; margin-bottom: 25px;">To the wedding website for <br><strong>D&aacute;ire and Rhys</strong></p>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">The wedding website for <br><strong>D&aacute;ire and Rhys</strong></p>
             <input type="password" id="pass-input" placeholder="Enter Password" autofocus>
             <button onclick="checkPassword()">Enter Site</button>
             <p id="error-msg" style="color: #c0392b; font-size: 0.9rem; margin-top: 15px;"></p>
@@ -136,7 +138,7 @@
 
     <div id="wedding-content" class="content-wrapper">
         <header class="section" style="text-align: center; border-bottom: none;">
-            <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
+            <h1>D&aacute;ire &amp; Rhys</h1>
             <p style="font-size: 1.15rem; line-height: 1.6;">
                 You're invited to the wedding celebration of D&aacute;ire and Rhys at the <strong>Bowes Museum</strong> in Barnard Castle, County Durham.
                 <span id="countdown-wrapper" style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #8a6d3b; display: block; margin-top: 15px; font-weight: 600;">
@@ -149,14 +151,15 @@
             <h2>Order of the Day</h2>
             <div class="timeline-container">
                 <span class="timeline-subhead">The Celebration</span>
-                <div class="timeline-row"><div class="tm-time">2:00 PM</div><div class="tm-event">Ceremony</div></div>
-                <div class="timeline-row"><div class="tm-time">3:00 PM</div><div class="tm-event">Drinks & Photography</div></div>
-                <div class="timeline-row"><div class="tm-time">4:00 PM</div><div class="tm-event">Wedding Breakfast</div></div>
-                <div class="timeline-row"><div class="tm-time">5:30 PM</div><div class="tm-event">Speeches</div></div>
+                <div class="timeline-row"><div class="tm-time">1:30 PM</div><div class="tm-event">Ceremony</div></div>
+                <div class="timeline-row"><div class="tm-time">2:30 PM</div><div class="tm-event">Drinks reception and free exploration of the gallery</div></div>
+                <div class="timeline-row"><div class="tm-time">4:30 PM</div><div class="tm-event">Speeches</div></div>
+                <div class="timeline-row"><div class="tm-time">5:00 PM</div><div class="tm-event">Wedding Breakfast</div></div>
                 
                 <span class="timeline-subhead" style="margin-top:20px;">The Party</span>
-                <div class="timeline-row"><div class="tm-time">6:00 PM</div><div class="tm-event">C&eacute;il&iacute;</div></div>
-                <div class="timeline-row"><div class="tm-time">8:00 PM</div><div class="tm-event">DJ & Dancing</div></div>
+                <div class="timeline-row"><div class="tm-time">7:00 PM</div><div class="tm-event">C&eacute;il&iacute; Hour 1</div></div>
+                <div class="timeline-row"><div class="tm-time">8:30 PM</div><div class="tm-event">C&eacute;il&iacute; Hour 2</div></div>
+                <div class="timeline-row"><div class="tm-time">9:30 PM</div><div class="tm-event">Pizza, DJ &amp; Dancing</div></div>
                 <div class="timeline-row"><div class="tm-time">11:30 PM</div><div class="tm-event">Carriages</div></div>
             </div>
         </section>
@@ -167,6 +170,12 @@
                 <h3>The Venue</h3>
                 <p>The museum is open to the public until 5pm, please be respectful of visitors. A lift is available to access the reception rooms (2nd floor). We encourage you to explore the galleries, your entrance is included as a guest, but please keep drinks on the second floor only. Red wine will be served from the evening onwards.</p>
             </div>
+            
+            <div class="faq-item">
+                <h3>The C&eacute;il&iacute;</h3>
+                <p>A c&eacute;il&iacute; is a traditional Irish dance. Don't worry if you don't know the moves—a "caller" will be there to teach everyone the steps! It's great fun, so please bring sensible shoes to dance the night away.</p>
+            </div>
+
             <div class="faq-item">
                 <h3>Dress Code</h3>
                 <p>Cocktail. Colourful clothing is encouraged; please avoid all white or all black.</p>
@@ -211,7 +220,8 @@
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('wedding-content').style.display = 'block';
                 
-                const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
+                // Updated countdown to the new ceremony time
+                const weddingDate = new Date("June 27, 2026 13:30:00").getTime();
                 const now = new Date().getTime();
                 const timeLeft = weddingDate - now;
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
