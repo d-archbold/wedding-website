@@ -88,17 +88,23 @@
 
         .section { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
 
+        /* SPECIFIC FIX FOR THE TIMELINE SECTION */
+        #timeline-section { 
+            border-bottom: none !important; 
+            padding-bottom: 0 !important; 
+            margin-bottom: 10px !important;
+        }
+
         .timeline-container { margin: 15px 0; border: none; }
         
-        /* Revised Timeline Row Logic */
         .timeline-row { 
             display: flex; 
             align-items: baseline; 
-            padding: 8px 0; 
-            border: none; /* Removed the bottom border from everyone */
+            padding: 10px 0; 
+            border: none; 
         }
         
-        /* This adds the line ABOVE every row except the first one */
+        /* Lines ONLY between rows, never at the bottom */
         .timeline-row + .timeline-row {
             border-top: 1px solid rgba(0,0,0,0.05);
         }
@@ -155,7 +161,7 @@
             </p>
         </header>
 
-        <section class="section">
+        <section class="section" id="timeline-section">
             <h2>Order of the Day</h2>
             <div class="timeline-container">
                 <div class="timeline-row"><div class="tm-time">14:00</div><div class="tm-event">Drinks Reception</div></div>
