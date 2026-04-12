@@ -84,11 +84,13 @@
         }
 
         h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 12px; font-weight: 600; }
-        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 5px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
 
         .section { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
 
-        /* SPECIFIC FIX FOR THE TIMELINE SECTION */
+        /* Reduced space for the intro header */
+        header.section { margin-bottom: 10px; padding-bottom: 10px; }
+
         #timeline-section { 
             border-bottom: none !important; 
             padding-bottom: 0 !important; 
@@ -104,7 +106,6 @@
             border: none; 
         }
         
-        /* Lines ONLY between rows, never at the bottom */
         .timeline-row + .timeline-row {
             border-top: 1px solid rgba(0,0,0,0.05);
         }
@@ -152,7 +153,7 @@
     <div id="wedding-content" class="content-wrapper">
         <header class="section" style="text-align: center; border-bottom: none;">
             <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
-            <p style="font-size: 1.15rem; line-height: 1.6;">
+            <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 10px;">
                 We got married in a small ceremony and celebration in October 2025, however we couldn’t pass up the opportunity to throw a party with our wider circle of family and friends! <br><br>
                 We’d be delighted if you could join us for the celebration at the <strong>Bowes Museum</strong> in Barnard Castle, County Durham on 27th June 2026.
                 <span id="countdown-wrapper" style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #8a6d3b; display: block; margin-top: 15px; font-weight: 600;">
