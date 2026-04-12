@@ -1,4 +1,138 @@
-<div id="wedding-content" class="content-wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex"> 
+    <title>Dáire & Rhys | June 27, 2026</title>
+    
+    <link rel="preload" as="image" href="background.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes fadeInEffect {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* LANDSCAPE BACKGROUND CONFIGURATION */
+        body { 
+            font-family: 'Lato', sans-serif; 
+            margin: 0;
+            color: #1a252f;
+            min-height: 100vh;
+            letter-spacing: 0.5px;
+            font-size: 18px;
+            background-color: #fdfcfb; 
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed; 
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        #login-screen { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            width: 100%; 
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px) brightness(0.9);
+            -webkit-backdrop-filter: blur(6px) brightness(0.9);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .login-box { 
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 30px; 
+            max-width: 350px; 
+            width: 100%; 
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            animation: fadeInEffect 0.8s ease-out;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .content-wrapper {
+            max-width: 600px;
+            margin: 60px auto; 
+            padding: 40px 25px;
+            display: none; 
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+            animation: fadeInEffect 1s ease-out;
+        }
+
+        h1 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 12px; font-weight: 600; }
+        h2 { color: #8a6d3b; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .section { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(138, 109, 59, 0.15); }
+
+        .timeline-container { margin: 15px 0; }
+        .timeline-row { display: flex; align-items: baseline; margin-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 5px; }
+        .tm-time { font-weight: 700; color: #8a6d3b; font-size: 1rem; width: 95px; flex-shrink: 0; }
+        .tm-event { flex-grow: 1; font-size: 1.1rem; }
+
+        .faq-item { text-align: left; margin-bottom: 22px; }
+        .faq-item h3 { font-size: 1.25rem; color: #8a6d3b; margin-bottom: 5px; font-family: 'Playfair Display', serif; }
+        .faq-item p { margin: 0; font-size: 1rem; line-height: 1.6; }
+
+        .notes-box { background: rgba(138, 109, 59, 0.08); padding: 25px; border-radius: 12px; font-size: 0.95rem; text-align: left; margin-top: 15px; border-left: 5px solid #8a6d3b; }
+
+        .rsvp-outer {
+            height: 600px; 
+            overflow: hidden;
+            border-radius: 12px;
+            background: #ffffff;
+            margin-top: 15px;
+            border: 1px solid #eee;
+        }
+        .rsvp-outer iframe { width: 100%; height: 100%; border: none; }
+
+        button { padding: 16px 30px; background: #8a6d3b; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; width: 100%; border-radius: 8px; transition: transform 0.2s, background 0.3s; }
+        button:hover { background: #6d562f; transform: translateY(-2px); }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .content-wrapper { padding: 25px 15px; margin: 20px auto; width: 92%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h1>Welcome</h1>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">To the wedding website for <br><strong>D&aacute;ire and Rhys</strong></p>
+            <input type="text" id="pass-input" placeholder="Enter Password" autofocus>
+            <button onclick="checkPassword()">Enter Site</button>
+            <p id="error-msg" style="color: #c0392b; font-size: 0.9rem; margin-top: 15px;"></p>
+        </div>
+    </div>
+
+    <div id="wedding-content" class="content-wrapper">
         <header class="section" style="text-align: center; border-bottom: none;">
             <h1>D&aacute;ire Archbold &amp; Rhys Griffiths</h1>
             <p style="font-size: 1.15rem; line-height: 1.6;">
@@ -56,3 +190,46 @@
                 </ul>
             </div>
         </section>
+
+        <section class="section" style="border-bottom: none;">
+            <h2>RSVP</h2>
+            <p style="font-size: 1rem; color: #576574; margin-bottom: 10px;">Please respond by <strong>10<sup>th</sup> May 2026</strong></p>
+            <div class="rsvp-outer">
+                <iframe src="https://tally.so/r/682eZO?transparentBackground=1" title="Wedding RSVP"></iframe>
+            </div>
+            <p style="text-align: center; font-size: 0.85rem; color: #8a6d3b; margin-top: 10px; font-weight: bold;">&uarr; Scroll within the box to RSVP &darr;</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('pass-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') { checkPassword(); }
+        });
+
+        function checkPassword() {
+            const enteredPass = document.getElementById('pass-input').value.trim();
+            if (enteredPass.toLowerCase() === "maude & claude") { 
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('wedding-content').style.display = 'block';
+                
+                const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
+                const now = new Date().getTime();
+                const timeLeft = weddingDate - now;
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                
+                if (days > 0) {
+                    document.getElementById("days-count").innerHTML = days;
+                } else if (days === 0) {
+                    document.getElementById("countdown-wrapper").innerHTML = "Today is the day!";
+                } else {
+                    document.getElementById("countdown-wrapper").style.display = "none";
+                }
+                
+                window.scrollTo(0, 0);
+            } else { 
+                document.getElementById('error-msg').innerText = "Incorrect password."; 
+            }
+        }
+    </script>
+</body>
+</html>
